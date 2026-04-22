@@ -21,9 +21,9 @@ jobs:
       - name: Build APK
         run: |
           cd SpeedMath/SpeedMath
-          sed -i 's/\r$//' gradlew
-          chmod +x gradlew
-          ./gradlew assembleDebug
+          curl -s https://services.gradle.org/distributions/gradle-8.5-bin.zip -o gradle.zip
+          unzip gradle.zip
+          ./gradle-8.5/bin/gradle assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
