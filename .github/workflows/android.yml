@@ -21,6 +21,7 @@ jobs:
       - name: Build APK
         run: |
           cd SpeedMath/SpeedMath
+          sed -i 's/\r$//' gradlew
           chmod +x gradlew
           ./gradlew assembleDebug
 
