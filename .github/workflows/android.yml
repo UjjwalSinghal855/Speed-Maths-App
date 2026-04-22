@@ -18,11 +18,11 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Grant execute permission
-        run: chmod +x SpeedMath/SpeedMath/gradlew
-
       - name: Build APK
-        run: cd SpeedMath/SpeedMath && ./gradlew assembleDebug
+        run: |
+          cd SpeedMath/SpeedMath
+          chmod +x gradlew
+          ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
