@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         Main App Theme – Material 3 with a blue primary colour
+         ══════════════════════════════════════════════════════════════════════ -->
+    <style name="Theme.SpeedMath" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary_blue</item>
+        <item name="colorPrimaryVariant">@color/primary_blue_dark</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorSecondary">@color/accent_orange</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+        <item name="android:statusBarColor">@color/primary_blue</item>
+        <item name="android:windowBackground">@color/bg_light</item>
+    </style>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         Reusable widget styles
+         ══════════════════════════════════════════════════════════════════════ -->
+
+    <!--
+        StatCell – vertical LinearLayout used inside stat grids on Result
+        and Progress screens. Equal width, centred content.
+    -->
+    <style name="StatCell">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
+    <!-- Large bold number in a stat cell -->
+    <style name="StatValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Small grey label below a stat value -->
+    <style name="StatLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!--
+        SectionLabel – bold heading above a group of inputs in SettingsActivity.
+    -->
+    <style name="SectionLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:paddingTop">4dp</item>
+    </style>
+
+    <!--
+        QuickBtn – compact outlined button used for preset toggles
+        (10 / 20 / 30 / 50 questions; 1-digit / 2-digit / 3-digit ranges).
+    -->
+    <style name="QuickBtn" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">36dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginEnd">4dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+    </style>
+
+</resources>

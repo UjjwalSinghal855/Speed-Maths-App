@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Home Screen: mode selection grid + quick stats banner -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_light"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- ── App Title ──────────────────────────────────────────────────── -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⚡ SpeedMath"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_blue"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="4dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Build your mental math speed"
+            android:textSize="13sp"
+            android:textColor="@color/text_secondary"
+            android:gravity="center"
+            android:paddingBottom="12dp"/>
+
+        <!-- ── Quick Stats Card ───────────────────────────────────────────── -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp"
+            app:cardBackgroundColor="@color/primary_blue">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Sessions" android:textColor="#FFFFFFCC" android:textSize="11sp"/>
+                    <TextView android:id="@+id/tvTotalSessions" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="0"
+                        android:textColor="@android:color/white" android:textSize="22sp" android:textStyle="bold"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Streak" android:textColor="#FFFFFFCC" android:textSize="11sp"/>
+                    <TextView android:id="@+id/tvCurrentStreak" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="0 🔥"
+                        android:textColor="@android:color/white" android:textSize="18sp" android:textStyle="bold"/>
+                    <TextView android:id="@+id/tvBestStreak" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="Best: 0"
+                        android:textColor="#FFFFFFAA" android:textSize="10sp"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Accuracy" android:textColor="#FFFFFFCC" android:textSize="11sp"/>
+                    <TextView android:id="@+id/tvOverallAccuracy" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="0%"
+                        android:textColor="@android:color/white" android:textSize="22sp" android:textStyle="bold"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ── Section: Choose Mode ───────────────────────────────────────── -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose Practice Mode"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:paddingBottom="8dp"/>
+
+        <!-- Row 1 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="8dp">
+            <include layout="@layout/item_mode_card" android:id="@+id/cardAddition"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="4dp"/>
+            <include layout="@layout/item_mode_card" android:id="@+id/cardSubtraction"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="4dp" android:layout_marginEnd="4dp"/>
+            <include layout="@layout/item_mode_card" android:id="@+id/cardMultiplication"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="4dp"/>
+        </LinearLayout>
+
+        <!-- Row 2 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="8dp">
+            <include layout="@layout/item_mode_card" android:id="@+id/cardDivision"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="4dp"/>
+            <include layout="@layout/item_mode_card" android:id="@+id/cardMixed"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="4dp" android:layout_marginEnd="4dp"/>
+            <include layout="@layout/item_mode_card" android:id="@+id/cardSquares"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="4dp"/>
+        </LinearLayout>
+
+        <!-- Row 3 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="16dp">
+            <include layout="@layout/item_mode_card" android:id="@+id/cardSquareRoots"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="4dp"/>
+            <include layout="@layout/item_mode_card" android:id="@+id/cardCubes"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="4dp" android:layout_marginEnd="4dp"/>
+            <include layout="@layout/item_mode_card" android:id="@+id/cardCubeRoots"
+                android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="4dp"/>
+        </LinearLayout>
+
+        <!-- ── Daily Challenge ────────────────────────────────────────────── -->
+        <Button
+            android:id="@+id/btnDailyChallenge"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="📅  Today's Daily Challenge"
+            android:textSize="15sp"
+            android:backgroundTint="@color/accent_orange"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- ── View Progress ─────────────────────────────────────────────── -->
+        <Button
+            android:id="@+id/btnViewProgress"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="📊  View Progress &amp; Analytics"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp"/>
+
+    </LinearLayout>
+</ScrollView>

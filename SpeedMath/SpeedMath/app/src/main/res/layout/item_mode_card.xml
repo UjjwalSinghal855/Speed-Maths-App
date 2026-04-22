@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Reusable card used for each practice mode on the home screen.
+     The host activity sets text and click listener programmatically. -->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@android:color/white"
+    android:foreground="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="12dp">
+
+        <!-- Math symbol icon -->
+        <TextView
+            android:id="@+id/tvModeIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/primary_blue"
+            android:paddingBottom="4dp"/>
+
+        <!-- Mode name -->
+        <TextView
+            android:id="@+id/tvModeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Addition"
+            android:textSize="11sp"
+            android:textColor="@color/text_secondary"
+            android:gravity="center"
+            android:maxLines="1"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

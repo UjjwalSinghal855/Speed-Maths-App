@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Row in the post-session question review list -->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="6dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="1dp">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:padding="10dp" android:gravity="center_vertical">
+
+        <!-- Result icon ✓ / ✗ -->
+        <TextView android:id="@+id/tvResultIcon"
+            android:layout_width="28dp" android:layout_height="28dp"
+            android:text="✓" android:textSize="18sp" android:textStyle="bold"
+            android:gravity="center"/>
+
+        <!-- Question number + text -->
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_weight="1" android:orientation="vertical"
+            android:layout_marginStart="8dp">
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView android:id="@+id/tvNumber"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="#1" android:textSize="11sp" android:textColor="@color/text_secondary"
+                    android:layout_marginEnd="4dp"/>
+                <TextView android:id="@+id/tvQuestion"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="12 + 34" android:textSize="15sp" android:textStyle="bold"
+                    android:textColor="@color/text_primary"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView android:id="@+id/tvUserAnswer"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="You: 46" android:textSize="12sp" android:textColor="@color/text_secondary"
+                    android:layout_marginEnd="8dp"/>
+                <TextView android:id="@+id/tvCorrectAnswer"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Ans: 46" android:textSize="12sp" android:textColor="@color/text_secondary"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Time taken -->
+        <TextView android:id="@+id/tvTime"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="3.2s" android:textSize="12sp" android:textColor="@color/text_secondary"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

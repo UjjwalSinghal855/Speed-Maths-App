@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Practice screen: progress bar, question card, timer, input, feedback -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_light"
+    android:padding="16dp">
+
+    <!-- ── Progress & Question Number ─────────────────────────────────────── -->
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:layout_marginBottom="6dp">
+        <TextView android:id="@+id/tvProgress"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="1 / 20"
+            android:textSize="13sp" android:textColor="@color/text_secondary"/>
+        <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+        <TextView android:id="@+id/tvElapsed"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="0.0s"
+            android:textSize="16sp" android:textStyle="bold" android:textColor="@color/primary_blue"/>
+    </LinearLayout>
+
+    <!-- ── Session progress bar ───────────────────────────────────────────── -->
+    <ProgressBar android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent" android:layout_height="8dp"
+        android:max="20" android:progress="1"
+        android:progressTint="@color/primary_blue"
+        android:progressBackgroundTint="@color/bg_medium"
+        android:layout_marginBottom="6dp"/>
+
+    <!-- ── Countdown bar (visible only in countdown mode) ────────────────── -->
+    <ProgressBar android:id="@+id/progressCountdown"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent" android:layout_height="6dp"
+        android:max="30000" android:progress="30000"
+        android:progressTint="@color/accent_orange"
+        android:progressBackgroundTint="@color/bg_medium"
+        android:visibility="gone"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- ── Question Card ──────────────────────────────────────────────────── -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/card_default"
+        android:layout_marginBottom="20dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+            android:orientation="vertical" android:gravity="center" android:padding="24dp">
+
+            <TextView android:id="@+id/tvQuestion"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="12 + 34"
+                android:textSize="48sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:gravity="center"/>
+
+            <!-- ── Feedback area ─────────────────────────────────────────── -->
+            <TextView android:id="@+id/tvFeedback"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="✓ Correct!"
+                android:textSize="22sp" android:textStyle="bold"
+                android:paddingTop="12dp"
+                android:visibility="gone"/>
+
+            <TextView android:id="@+id/tvCorrectAnswer"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Answer: 46"
+                android:textSize="16sp" android:textColor="@color/text_secondary"
+                android:paddingTop="4dp"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- ── Answer Input ───────────────────────────────────────────────────── -->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:hint="Your answer"
+        android:layout_marginBottom="12dp">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etAnswer"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:inputType="numberSigned|numberDecimal"
+            android:imeOptions="actionDone"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:maxLength="10"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- ── Submit / Next buttons ─────────────────────────────────────────── -->
+    <Button android:id="@+id/btnSubmit"
+        android:layout_width="match_parent" android:layout_height="56dp"
+        android:text="Submit Answer"
+        android:textSize="16sp" android:textStyle="bold"
+        android:backgroundTint="@color/primary_blue"/>
+
+    <Button android:id="@+id/btnNext"
+        android:layout_width="match_parent" android:layout_height="56dp"
+        android:text="Next →"
+        android:textSize="16sp"
+        android:backgroundTint="@color/text_secondary"
+        android:visibility="gone"/>
+
+</LinearLayout>

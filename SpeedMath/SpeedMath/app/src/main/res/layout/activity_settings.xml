@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Settings / Configure Session screen -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- ── Toolbar row ──────────────────────────────────────────────── -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+            <Button android:id="@+id/btnBack"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="← Back"/>
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="Configure Session"
+                android:textSize="18sp" android:textStyle="bold"
+                android:textColor="@color/text_primary" android:gravity="center"/>
+            <View android:layout_width="64dp" android:layout_height="1dp"/>
+        </LinearLayout>
+
+        <!-- ── Mode selector ──────────────────────────────────────────── -->
+        <TextView style="@style/SectionLabel" android:text="Practice Mode"/>
+        <TextView android:id="@+id/tvSelectedMode"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textSize="13sp" android:textColor="@color/text_secondary"
+            android:paddingBottom="4dp"/>
+        <Spinner android:id="@+id/spinnerMode"
+            android:layout_width="match_parent" android:layout_height="48dp"
+            android:background="@drawable/spinner_bg"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- ── Number of Questions ──────────────────────────────────── -->
+        <TextView style="@style/SectionLabel" android:text="Number of Questions"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="4dp">
+            <Button android:id="@+id/btn10" style="@style/QuickBtn" android:text="10"/>
+            <Button android:id="@+id/btn20" style="@style/QuickBtn" android:text="20"/>
+            <Button android:id="@+id/btn30" style="@style/QuickBtn" android:text="30"/>
+            <Button android:id="@+id/btn50" style="@style/QuickBtn" android:text="50"/>
+        </LinearLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Custom count"
+            android:layout_marginBottom="12dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etQuestionCount"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:inputType="number" android:maxLength="3"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- ── Number Range Quick Presets ─────────────────────────────── -->
+        <TextView style="@style/SectionLabel" android:text="Range Presets"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="8dp">
+            <Button android:id="@+id/btnRange1d" style="@style/QuickBtn" android:text="1-digit"/>
+            <Button android:id="@+id/btnRange2d" style="@style/QuickBtn" android:text="2-digit"/>
+            <Button android:id="@+id/btnRange3d" style="@style/QuickBtn" android:text="3-digit"/>
+        </LinearLayout>
+
+        <!-- ── First Operand Range ─────────────────────────────────── -->
+        <TextView style="@style/SectionLabel" android:text="First Number Range"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginBottom="12dp">
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:hint="Min" android:layout_marginEnd="6dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFirstMin"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:inputType="number" android:maxLength="4"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:hint="Max" android:layout_marginStart="6dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFirstMax"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:inputType="number" android:maxLength="4"/>
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- ── Second Operand Range (hidden for single-operand modes) ── -->
+        <LinearLayout android:id="@+id/layoutSecondRange"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView style="@style/SectionLabel" android:text="Second Number Range"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="12dp">
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:hint="Min" android:layout_marginEnd="6dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSecondMin"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:inputType="number" android:maxLength="4"/>
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:hint="Max" android:layout_marginStart="6dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSecondMax"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:inputType="number" android:maxLength="4"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ── Root Options ───────────────────────────────────────────── -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="Perfect roots only (√, ∛)"
+                android:textSize="14sp" android:textColor="@color/text_primary"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchPerfectRoots"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:checked="true"/>
+        </LinearLayout>
+
+        <!-- ── Countdown Timer ──────────────────────────────────────── -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="Countdown timer per question"
+                android:textSize="14sp" android:textColor="@color/text_primary"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchCountdown"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="Seconds per question"
+            android:layout_marginBottom="20dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCountdown"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:inputType="number" android:enabled="false" android:maxLength="3"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- ── Start Button ───────────────────────────────────────────── -->
+        <Button
+            android:id="@+id/btnStartPractice"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="▶  Start Practice"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/primary_blue"
+            android:layout_marginBottom="24dp"/>
+
+    </LinearLayout>
+</ScrollView>
